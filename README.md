@@ -4,8 +4,8 @@
 
 ### Using PDBe_KB queries .
 
-List of Example queries to try with local installtion of PDBe-KB knowledge base .
+List of Example queries to try with local installtion of [PDBe-KB knowledge base](https://www.ebi.ac.uk/pdbe/pdbe-kb/graph-download)
 
-Queries are listed in query folder.There are long running queries in PDB_Counts folder which have queries for node and relationship type counts. 
+Queries are listed in query folder. There are long running queries in PDB_Counts folder which have queries for node and relationship type counts. 
 
 Feedbacks and patches welcome !!!
