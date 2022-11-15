@@ -1,0 +1,2 @@
+MATCH (entry:Entry {ID:"6vvo"})-[:HAS_ENTITY]->(entity:Entity)-[:HAS_PDB_RESIDUE]->(pdb_res:PDBResidue)-[:HAS_ARP_CONTACT]-(bound_ligand:BoundLigand)<-[:IS_AN_INSTANCE_OF]-(ligand_entity:Entity)-[:IS_A]->(chem_Comp:ChemicalComponent)-[:DESCRIBED_BY]->(des:ChemicalComponentDesc), (bound_ligand)-[:IS_PART_OF]->(bound_molecule:BoundMolecule)
+RETURN DISTINCT bound_molecule.ID AS bound_molecule_id, pdb_res.ID AS pdb_res_id,des.DESCRIPTOR,pdb_res.CHEM_COMP_ID AS pdb_res_code ORDER BY toInteger(pdb_res_id)

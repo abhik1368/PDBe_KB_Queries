@@ -1,0 +1,5 @@
+ MATCH (unp:UniProt)<-[:IS_VARIANT_IN]-(unp_variant:UNPVariant)<-[:IS_ASSOCIATION_FOR]-(unp_asso:UNPAssociation)<-[:IS_EVIDENCE_FOR]-(unp_evidence:UNPVariantEvidence)
+    RETURN unp_variant.ID, COALESCE(unp_variant.ALTERNATIVE_SEQUENCE, 'undefined'), unp_variant.BEGIN, unp_variant.END, unp_variant.WILD_TYPE, unp_variant.POLYPHEN_PREDICTION, unp_variant.POLYPHEN_SCORE, unp_variant.SIFT_PREDICTION,
+        unp_variant.SIFT_SCORE, unp_variant.SOMATIC_STATUS, unp_variant.CYTOGENETIC_BAND, unp_variant.CONSEQUENCE_TYPE, unp_variant.GENOMIC_LOCATION, unp_variant.SOURCE_TYPES, unp_variant.CLINICAL_SIGNIFICANCES, 
+        unp_asso.ID, unp_asso.NAME, unp_asso.DESCRIPTION, unp_asso.DISEASE, unp_evidence.CODE, unp_evidence.NAME, unp_evidence.ID, unp_evidence.DESCRIPTION, unp_evidence.URL, unp_evidence.ALTERNATIVE_URL
+        ORDER BY toInteger(unp_variant.BEGIN) LIMIT 50

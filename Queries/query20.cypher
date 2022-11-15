@@ -1,0 +1,3 @@
+ MATCH (entry:Entry {ID:'4mg6'})-[:HAS_ENTITY]->(entity:Entity)-[:HAS_PDB_RESIDUE]->(pdb_res:PDBResidue)-[rel:MAP_TO_UNIPROT_RESIDUE]->(unp_res:UNPResidue)<-[:HAS_UNP_RESIDUE]-(unp:UniProt)
+    MATCH (chem_comp:ChemicalComponent) WHERE chem_comp.ID=pdb_res.CHEM_COMP_ID AND chem_comp.TYPE IN ['P','D','R'] AND chem_comp.MON_NSTD_PARENT_CHEM_COMP_ID IS NOT null
+    RETURN pdb_res.ID, pdb_res.CHEM_COMP_ID, unp_res.ID, unp_res.ONE_LETTER_CODE ORDER BY toInteger(pdb_res.ID) LIMIT 50
